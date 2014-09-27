@@ -10,6 +10,10 @@ shared_examples "a card" do |name|
     it "its value should eq 1" do
       expect(card.value).to eq 1
     end
+    it { expect(card).to have_alternative_value }
+    it "should have alternative value 11" do
+      expect(card.alternative_value).to eq 11
+    end
   end
 
   context "with card 2" do
@@ -20,6 +24,7 @@ shared_examples "a card" do |name|
     it "its value should eq 2" do
       expect(card.value).to eq 2
     end
+    it { expect(card).not_to have_alternative_value }
   end
 
   context "with card 10" do
@@ -30,6 +35,7 @@ shared_examples "a card" do |name|
     it "its value should eq 10" do
       expect(card.value).to eq 10
     end
+    it { expect(card).not_to have_alternative_value }
   end
 
   context "with card J" do
@@ -40,6 +46,7 @@ shared_examples "a card" do |name|
     it "its value should eq 10" do
       expect(card.value).to eq 10
     end
+    it { expect(card).not_to have_alternative_value }
   end
 
   context "with card Q" do
@@ -50,6 +57,7 @@ shared_examples "a card" do |name|
     it "its value should eq 10" do
       expect(card.value).to eq 10
     end
+    it { expect(card).not_to have_alternative_value }
   end
 
   context "with card K" do
@@ -60,6 +68,7 @@ shared_examples "a card" do |name|
     it "its value should eq 10" do
       expect(card.value).to eq 10
     end
+    it { expect(card).not_to have_alternative_value }
   end
 
   context "with invalid card Jorker" do
