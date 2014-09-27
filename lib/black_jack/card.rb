@@ -5,6 +5,7 @@ module BlackJack
     attr_reader :name, :value
 
     def initialize(name)
+      @name = name
       case name
       when 'A'
         @value = 1
