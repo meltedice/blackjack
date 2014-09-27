@@ -3,7 +3,7 @@
 shared_examples "a card" do |name|
 
   context "with card A" do
-    subject(:card) { BlackJack::Card.new('A') }
+    subject(:card) { described_class.new('A') }
     it "its name should eq A" do
       expect(card.name).to eq 'A'
     end
@@ -17,7 +17,7 @@ shared_examples "a card" do |name|
   end
 
   context "with card 2" do
-    subject(:card) { BlackJack::Card.new('2') }
+    subject(:card) { described_class.new('2') }
     it "its name should eq 2" do
       expect(card.name).to eq '2'
     end
@@ -28,7 +28,7 @@ shared_examples "a card" do |name|
   end
 
   context "with card 10" do
-    subject(:card) { BlackJack::Card.new('10') }
+    subject(:card) { described_class.new('10') }
     it "its name should eq 10" do
       expect(card.name).to eq '10'
     end
@@ -39,7 +39,7 @@ shared_examples "a card" do |name|
   end
 
   context "with card J" do
-    subject(:card) { BlackJack::Card.new('J') }
+    subject(:card) { described_class.new('J') }
     it "its name should eq J" do
       expect(card.name).to eq 'J'
     end
@@ -50,7 +50,7 @@ shared_examples "a card" do |name|
   end
 
   context "with card Q" do
-    subject(:card) { BlackJack::Card.new('Q') }
+    subject(:card) { described_class.new('Q') }
     it "its name should eq Q" do
       expect(card.name).to eq 'Q'
     end
@@ -61,7 +61,7 @@ shared_examples "a card" do |name|
   end
 
   context "with card K" do
-    subject(:card) { BlackJack::Card.new('K') }
+    subject(:card) { described_class.new('K') }
     it "its name should eq K" do
       expect(card.name).to eq 'K'
     end
@@ -73,7 +73,7 @@ shared_examples "a card" do |name|
 
   context "with invalid card Jorker" do
     it "should occur Invalid Card error" do
-      expect { BlackJack::Card.new('Jorker') }.to raise_error BlackJack::Card::InvalidCardError
+      expect { described_class.new('Jorker') }.to raise_error Kernel.const_get("#{described_class}::InvalidCardError")
     end
   end
 
