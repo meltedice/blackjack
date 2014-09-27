@@ -2,6 +2,8 @@
 
 module BlackJack
   class Card
+    class InvalidCardError < StandardError; end
+
     attr_reader :name, :value
 
     def initialize(name)
@@ -13,6 +15,8 @@ module BlackJack
         @value = name.to_i
       when 'J', 'Q', 'K'
         @value = 10
+      else
+        raise InvalidCardError, "Invalid Card Name: #{name.inspect}"
       end
     end
   end

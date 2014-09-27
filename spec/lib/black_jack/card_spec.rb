@@ -62,6 +62,12 @@ shared_examples "a card" do |name|
     end
   end
 
+  context "with invalid card Jorker" do
+    it "should occur Invalid Card error" do
+      expect { BlackJack::Card.new('Jorker') }.to raise_error BlackJack::Card::InvalidCardError
+    end
+  end
+
 end
 
 describe BlackJack::Card do
