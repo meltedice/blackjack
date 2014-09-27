@@ -9,7 +9,7 @@ module BlackJack
       case name
       when 'A'
         @value = 1
-      when '1'..'9'
+      when '2'..'10'
         @value = name.to_i
       when 'J', 'Q', 'K'
         @value = 10
