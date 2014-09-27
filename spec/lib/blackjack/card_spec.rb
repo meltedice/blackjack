@@ -79,6 +79,6 @@ shared_examples "a card" do |name|
 
 end
 
-describe BlackJack::Card do
+describe Blackjack::Card do
   it_behaves_like "a card"
 end

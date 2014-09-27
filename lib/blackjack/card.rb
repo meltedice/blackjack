@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-module BlackJack
+module Blackjack
   class Card
     class InvalidCardError < StandardError; end
 
