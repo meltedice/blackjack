@@ -1,30 +1,69 @@
 # encoding: utf-8
 
-shared_examples "a card (1)" do |name|
-  describe BlackJack::Card do
-    specify { expect(BlackJack::Card.new('A').name).to eq 'A' }
-    specify { expect(BlackJack::Card.new('1').name).to eq '1' }
-    specify { expect(BlackJack::Card.new('9').name).to eq '9' }
-    specify { expect(BlackJack::Card.new('J').name).to eq 'J' }
-    specify { expect(BlackJack::Card.new('Q').name).to eq 'Q' }
-    specify { expect(BlackJack::Card.new('K').name).to eq 'K' }
-  end
-end
+shared_examples "a card" do |name|
 
-shared_examples "a card (2)" do |name|
-  describe BlackJack::Card do
-    specify { expect(BlackJack::Card.new(name).name).to eq name }
+  context "with card A" do
+    subject(:card) { BlackJack::Card.new('A') }
+    it "its name should eq A" do
+      expect(card.name).to eq 'A'
+    end
+    it "its value should eq 1" do
+      expect(card.value).to eq 1
+    end
   end
+
+  context "with card 2" do
+    subject(:card) { BlackJack::Card.new('2') }
+    it "its name should eq 2" do
+      expect(card.name).to eq '2'
+    end
+    it "its value should eq 2" do
+      expect(card.value).to eq 2
+    end
+  end
+
+  context "with card 10" do
+    subject(:card) { BlackJack::Card.new('10') }
+    it "its name should eq 10" do
+      expect(card.name).to eq '10'
+    end
+    it "its value should eq 10" do
+      expect(card.value).to eq 10
+    end
+  end
+
+  context "with card J" do
+    subject(:card) { BlackJack::Card.new('J') }
+    it "its name should eq J" do
+      expect(card.name).to eq 'J'
+    end
+    it "its value should eq 10" do
+      expect(card.value).to eq 10
+    end
+  end
+
+  context "with card Q" do
+    subject(:card) { BlackJack::Card.new('Q') }
+    it "its name should eq Q" do
+      expect(card.name).to eq 'Q'
+    end
+    it "its value should eq 10" do
+      expect(card.value).to eq 10
+    end
+  end
+
+  context "with card K" do
+    subject(:card) { BlackJack::Card.new('K') }
+    it "its name should eq K" do
+      expect(card.name).to eq 'K'
+    end
+    it "its value should eq 10" do
+      expect(card.value).to eq 10
+    end
+  end
+
 end
 
 describe BlackJack::Card do
-  it_behaves_like "a card (1)"
-  it_behaves_like "a card (2)", 'A'
-  it_behaves_like "a card (2)", '1'
-  it_behaves_like "a card (2)", '9'
-  it_behaves_like "a card (2)", 'J'
-  it_behaves_like "a card (2)", 'Q'
-  it_behaves_like "a card (2)", 'K'
+  it_behaves_like "a card"
 end
-
-
